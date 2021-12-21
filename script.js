@@ -1,12 +1,18 @@
-let array = [1, 2, 3, 4, 5];
+let string = prompt('Введите слово');
 
-function changeFour(array) {
-    let newArray = array.slice();
-    newArray[3] = 'JavaScript';
-    return newArray;
+function getWordInform(string) {
+    const words = string.split(" ");
+    const result = [];
+
+    words.forEach(function (word) {
+        result.push({
+            word: word,
+            length: word.length,
+            isCapitalize: word[0].toUpperCase() === word[0],
+        })
+    });
+
+    return result;
 }
 
-let result = changeFour(array);
-
-console.log(array); // [1, 2, 3, 4, 5];
-console.log(result); // [1, 2, 3, 'JavaScript', 5];
+console.log(getWordInform(string));
